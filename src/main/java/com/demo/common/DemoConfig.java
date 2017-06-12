@@ -2,6 +2,7 @@ package com.demo.common;
 
 import com.demo.blog.BlogController;
 import com.demo.common.model._MappingKit;
+import com.demo.common.plugin.MyPlugin;
 import com.demo.index.IndexController;
 import com.demo.joke.JokeController;
 import com.jfinal.config.Constants;
@@ -35,7 +36,7 @@ public class DemoConfig extends JFinalConfig {
 		/**
 		 * 特别注意：Eclipse 之下建议的启动方式
 		 */
-		JFinal.start("src/main/webapp", 7001, "/", 5);
+		JFinal.start("src/main/webapp", 80, "/", 5);
 		
 		/**
 		 * 特别注意：IDEA 之下建议的启动方式，仅比 eclipse 之下少了最后一个参数
@@ -79,6 +80,8 @@ public class DemoConfig extends JFinalConfig {
 		// 所有映射在 MappingKit 中自动化搞定
 		_MappingKit.mapping(arp);
 		me.add(arp);
+		
+		me.add(new MyPlugin());
 	}
 	
 	public static DruidPlugin createDruidPlugin() {
@@ -98,4 +101,5 @@ public class DemoConfig extends JFinalConfig {
 	public void configHandler(Handlers me) {
 		
 	}
+	
 }
