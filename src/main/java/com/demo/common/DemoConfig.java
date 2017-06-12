@@ -3,6 +3,7 @@ package com.demo.common;
 import com.demo.blog.BlogController;
 import com.demo.common.model._MappingKit;
 import com.demo.index.IndexController;
+import com.demo.joke.JokeController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -34,7 +35,7 @@ public class DemoConfig extends JFinalConfig {
 		/**
 		 * 特别注意：Eclipse 之下建议的启动方式
 		 */
-		JFinal.start("src/main/webapp", 80, "/", 5);
+		JFinal.start("src/main/webapp", 7001, "/", 5);
 		
 		/**
 		 * 特别注意：IDEA 之下建议的启动方式，仅比 eclipse 之下少了最后一个参数
@@ -57,6 +58,7 @@ public class DemoConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class, "/index");	// 第三个参数为该Controller的视图存放路径
 		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
+		me.add("joke", JokeController.class);
 	}
 	
 	public void configEngine(Engine me) {
